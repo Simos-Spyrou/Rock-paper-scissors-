@@ -12,6 +12,7 @@ const slider = document.getElementById("slider");
 var prevPcChoice = null;
 var prevUserChoice = null;
 var i = 0;
+var flag = false;
 
 main();
 
@@ -54,6 +55,9 @@ function game(userChoice) {
     var image = document.createElement("img");
     var pc_image = document.createElement("img");
     
+    image.classList.add("selectionImage");
+    pc_image.classList.add("selectionImage");
+    
     var imageParent = document.getElementById("user-sel");
     var pc_image_Parent = document.getElementById("pc-sel");
 
@@ -69,8 +73,17 @@ function game(userChoice) {
     imageParent.appendChild(image);
     pc_image_Parent.appendChild(pc_image);
 
-    console.log(pc_image.src);
-    
+    /*
+    //ρισετ margin του vs για να γινει ξανα το animation
+    if(flag) {
+        slider.style.transitionDuration = "0s";
+        slider.style.margin = "auto 30% auto 30%";
+        slider.style.transitionDuration = "3s";
+        console.log("μπηκα στο ιφ και έθεσα margin:", slider.style.margin);
+    }
+    */
+
+    //αποτίμιση μάχης
     switch(userChoice) {
         case('r') : {
             switch(pcChoice) {
@@ -98,10 +111,11 @@ function game(userChoice) {
         }
         
     }
-    i++;
 
-    console.log(slider);
+    i++;
     slider.style.margin = "auto 10% auto 10%";
+    //flag = true;
+
 
 }
 
@@ -120,3 +134,4 @@ function main() {
         game("s");
     })
 }
+

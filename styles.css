@@ -102,7 +102,12 @@ header >h1 {
     transition: all 0.3s ease-in;
 }
 
-
+.selectionImage {
+    display: block;
+    margin: 0 auto;
+    max-height: 50%;
+    transition: all 2s ease-in-out;
+}
 
 #action-message {
     text-align: center;

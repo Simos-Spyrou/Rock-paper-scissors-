@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ΠΨΧ</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body> 
+        <header>
+            <h1>Πέτρα Ψαλίδι Χαρτί</h1>
+        </header>
+        
+        <div class="score-board">
+            <div id="user-label" class="badge">εσύ</div>
+            <div id="computer-label" class="badge">bot</div>
+            <span id="user-score">0</span> : <span id="computer-score">0</span>
+        </div>
+
+        <div class="result">
+            <p>Για να ξεκινήσεις κάνε κλικ σε κάποιο από τα τρία!</p>
+        </div>
+
+        <div class="choices">
+            <div class="choice" id="r">
+                <img src="rock.png" width="165" height="165" alt="">
+            </div>
+            <div class="choice" id="s">
+                <img src="scissors.png" width="165" height="165" alt="">
+            </div>
+            <div class="choice" id="p">
+                <img src="paper.png" width="165" height="165" alt="">
+            </div>
+        </div>
+
+        <p id="action-message">Κάνε την κίνηση σου!</p>
+
+        <div class="selectionArea">
+            <div class="user-slide" id="user-sel"> </div>
+            
+            <h1 id="slider">VS</h1>
+
+            <div class="pc-slide" id="pc-sel"> </div>
+
+        </div>
+
+    </body>
+    <script src="app.js" charset="utf-8"></script>
+</html>

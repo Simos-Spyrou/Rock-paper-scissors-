@@ -12,38 +12,35 @@ const slider = document.getElementById("slider");
 var prevPcChoice = null;
 var prevUserChoice = null;
 var i = 0;
-var flag = false;
 
 main();
 
-
+// basic functions
 function draw() {
-    result_div.innerHTML = "Ισοπαλία.";
+    result_div.innerHTML = "Draw.";
 }
-
 function win() {
     userScore++;
     userScore_span.innerHTML = userScore;
-    result_div.innerHTML = "Νίκησες!";
+    result_div.innerHTML = "Victory!";
     slide_div.background = "#5ea343be";
     
 }
-
 function lose() {
     computerScore++;
     computerScore_span.innerHTML = computerScore;
-    result_div.innerHTML = "Έχασες...";
+    result_div.innerHTML = "Defeat...";
 }
 
 
 function game(userChoice) {
-    //επιλογή pc 
+    //pc choice
     const choices = ['r', 'p', 's'];
     const selectionIndex = Math.floor(Math.random() * 3);
     const pcChoice = choices[selectionIndex];
     var pcChoiceVar = pcChoice;
     
-    //διαγραφή προηγούμενων εικόνων επιλογής
+    //delete old image elements
     if(i>0) {
         var previous_sel_user = document.getElementById("sel"+(i-1)); 
         previous_sel_user.parentElement.removeChild(previous_sel_user);
@@ -51,39 +48,33 @@ function game(userChoice) {
         previous_sel_pc.parentElement.removeChild(previous_sel_pc);
     }
 
-    //δημιουργία εικόνας user και pc
+    //create, place and animate new image element 
     var image = document.createElement("img");
     var pc_image = document.createElement("img");
     
     image.classList.add("selectionImage");
     pc_image.classList.add("selectionImage");
+
     
     var imageParent = document.getElementById("user-sel");
     var pc_image_Parent = document.getElementById("pc-sel");
-
+    
     image.style.maxHeight = "90%";
     pc_image.style.maxHeight = "90%";
-
+    
     image.id = "sel" + i;
     pc_image.id = "pc-sel" + i;
-
+    
     image.src = userChoice + ".png";
     pc_image.src = pcChoiceVar + ".png";
-
+    
     imageParent.appendChild(image);
     pc_image_Parent.appendChild(pc_image);
-
-    /*
-    //ρισετ margin του vs για να γινει ξανα το animation
-    if(flag) {
-        slider.style.transitionDuration = "0s";
-        slider.style.margin = "auto 30% auto 30%";
-        slider.style.transitionDuration = "3s";
-        console.log("μπηκα στο ιφ και έθεσα margin:", slider.style.margin);
-    }
-    */
-
-    //αποτίμιση μάχης
+    
+    setTimeout(() => {image.classList.add("slide-right");}, 10);
+    setTimeout(() => {pc_image.classList.add("slide-left");}, 10);
+    
+    //result evaluation
     switch(userChoice) {
         case('r') : {
             switch(pcChoice) {
@@ -111,12 +102,7 @@ function game(userChoice) {
         }
         
     }
-
     i++;
-    slider.style.margin = "auto 10% auto 10%";
-    //flag = true;
-
-
 }
 
 
@@ -134,4 +120,3 @@ function main() {
         game("s");
     })
 }
-

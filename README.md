@@ -1,0 +1,2 @@
+This was one of my first web development projects i completed. I started by following the structure from an online tutorial and later added some extra functionality and visual effects with vanilla javascript. 
+It's a fully functional rock paper scissors game versus an ai opponent. I made sure the code is clean and readable, along with it's comments, to provide an easy and fast overlook of my work (front-end wise).     

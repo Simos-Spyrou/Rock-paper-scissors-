@@ -80,8 +80,7 @@ header >h1 {
 
 .choice:hover {
     cursor: pointer;
-    padding: 0;
-    margin: 0px 31px;
+    transform: scale(96%);
     background: rgb(24, 26, 31)
 }
 
@@ -91,22 +90,34 @@ header >h1 {
     padding: 30px;
     margin: 30px;
     display: flex;
-    background:rgba(255, 255, 255, 0.349);
+    background: #e258401a;
     justify-content: center;
     font-size: 40pt;
-
 }
 
 .selectionArea h1 {
-    margin: auto 20% auto 20%;
-    transition: all 0.3s ease-in;
+    margin: auto 20% ;
+    color: white;
+    font-size: 30pt;
 }
 
 .selectionImage {
     display: block;
     margin: 0 auto;
     max-height: 50%;
-    transition: all 2s ease-in-out;
+    transition: all 0.5s ease;
+    opacity: 0%;
+}
+
+.selectionImage.slide-right{
+    transform: translate(50%);
+    opacity: 75%;
+}
+
+.selectionImage.slide-left{
+    transform: translate(-50%);
+    opacity: 75%
+
 }
 
 #action-message {
